@@ -1,10 +1,9 @@
-import express from "express"
-import productRoutes from "./routes/products.routes.js"
+import express from "express";
 
 const app = express();
 
-app.use('/api', productRoutes);
+const PORT = 3000;
 
-app.listen(3000,() => {
-    console.log("servidor escuachando en el puerto 3000")
+app.listen(PORT, () => {
+    console.log(`servidor escuchando en el puerto ${PORT}`);
 })
