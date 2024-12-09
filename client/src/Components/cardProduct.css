@@ -1,0 +1,13 @@
+.cardProduct {
+    display: grid;
+    min-height: auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap:4px;
+}
+
+@media (min-width: 1024px){
+    .cardProduct {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+}

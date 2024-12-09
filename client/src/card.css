@@ -1,0 +1,73 @@
+:root {
+  --color: #59A15B;
+  --color2: #39909D;
+  --school-card-bg: #13161c;
+}
+
+element {
+  color: var(--color);
+  background-color: var(--color2);
+}
+
+.SchoolCard {
+  border-radius: .75rem;
+  color: #fff;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  overflow-x: hidden;
+  background-color: var(--school-card-bg);
+}
+
+.SchoolCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-image: radial-gradient(circle, var(--color2) 60%, var(--school-card-bg) 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 150%;
+  filter: blur(50px);
+  opacity: .75;
+  z-index: -2;
+}
+
+.SchoolCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -3;
+}
+
+.SchoolCard:focus-visible::after,
+.SchoolCard:focus-within::after,
+.SchoolCard:focus::after,
+.SchoolCard:hover::after {
+  background-image: radial-gradient(circle, var(--color2) 60%, #31333d 100%);
+}
+
+.SchoolCard:active::after {
+  background-image: radial-gradient(circle, var(--color2) 60%, #13161c 100%);
+}
+
+@media(min-width: 48rem) {
+  .SchoolCard {
+    max-width: 312px;
+  }
+}
+
+@media(min-width: 1280px) {
+  .SchoolCard {
+    max-width: 300px;
+  }
+}
