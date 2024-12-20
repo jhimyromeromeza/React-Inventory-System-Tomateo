@@ -64,18 +64,22 @@ const CardProduct: React.FC<CardProductProps> = ({
       <div className="flex justify-center w-full space-x-3 p-1 ">
         <button
           className="bg-red-500 p-1 rounded-md "
-          onClick={async () => {
-            try {
-              const namePath = product.imagePath;
-              await deleteProduct(product._id);
-              setShowReload(true);
-              if (namePath.length > 0) {
-                const storageRef = ref(storage, namePath);
-                await deleteObject(storageRef);
+          onClick={() => {
+            const deleteCard = async () => {
+              try {
+                const namePath = product.imagePath;
+                await deleteProduct(product._id);
+                if (namePath.length > 0) {
+                  const storageRef = ref(storage, namePath);
+                  await deleteObject(storageRef);
+                }
+
+              } catch (error) {
+                console.log(error);
               }
-            } catch (error) {
-              console.log(error);
             }
+            deleteCard();
+            setShowReload(true);
           }}
         >
           <MdDelete size={20} />

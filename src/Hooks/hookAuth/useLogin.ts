@@ -28,7 +28,7 @@ const useLogin = () => {
       });
       const data = await response.json();
       if (!response.ok)
-        throw new Error(data.Error || "An unexpected error occurred");
+        throw new Error(data.error || "An unexpected error occurred");
       if (!data.error) {
         setAuthUser([data]);
         localStorage.setItem("user", JSON.stringify(data));

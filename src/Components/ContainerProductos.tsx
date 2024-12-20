@@ -23,7 +23,7 @@ const ContainerProductos: React.FC<ContainerProductosProps> = ({
     if (JSON.stringify(products) !== JSON.stringify(listProducts)) {
       SetListProducts(products);
     }
-  }, [products, listProducts]);
+  }, [products]);
   if (loading) {
     return <span className="loading loading-spinner loading-sm"></span>;
   }
@@ -37,7 +37,6 @@ const ContainerProductos: React.FC<ContainerProductosProps> = ({
             value={selectOption}
             onChange={(e) => {
               const Option = e.target.value;
-              console.log(Option);
               setSelectOption(e.target.value);
               SetListProducts(() => {
                 if (Option == "Todo") return products;

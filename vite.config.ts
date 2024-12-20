@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://18.217.127.123:3000",
+        target: "https://matizadostomateo.com",
       }
     }
   }

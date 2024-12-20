@@ -29,6 +29,7 @@ const ProductsPage = () => {
   return (
     <div>
       <Banner isMobile={isMovile} />
+      <Toaster />
       <div
         className=""
         /**style={{
@@ -50,7 +51,6 @@ const ProductsPage = () => {
               setProductEdit={setProductEdit}
             />
           )}
-          <Toaster />
           <ContainerProductos
             loading={loading}
             setShowReload={setShowReload}

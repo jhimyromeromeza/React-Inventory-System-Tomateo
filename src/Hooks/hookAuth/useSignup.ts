@@ -28,7 +28,7 @@ const useSignup = () => {
         body: JSON.stringify(newUser),
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data.Error);
+      if (!response.ok) throw new Error(data.error);
       setAuthUser([data]);
       const userCretentials = await createUserWithEmailAndPassword(
         auth,

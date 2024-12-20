@@ -5,6 +5,8 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase/useFirebase";
 import { DataProduct } from "../interfaces/interfaces";
 import { useMarca } from "../zustand/useProducts";
+import toast from "react-hot-toast"
+import { Product } from "../interfaces/interfaces";
 
 interface FormProductProps {
   setShowReload: React.Dispatch<React.SetStateAction<boolean>>;
@@ -46,9 +48,10 @@ const FormProduct: React.FC<FormProductProps> = ({
       </div>
       <div className="bg-gray-500 bg-opacity-20 rounded-xl w-full text-gray-700 ">
         <form
-          className=""
           onSubmit={(e) => {
             e.preventDefault();
+            const allCanpos = verifyInput(inputProduct);
+            if(!allCanpos) return; 
             if (productEdit) {
               updateProduct(inputProduct, productEdit._id);
               setProductEdit(null);
@@ -240,3 +243,19 @@ const FormProduct: React.FC<FormProductProps> = ({
 };
 
 export default FormProduct;
+
+
+const verifyInput = (inputProduct: Product) => {
+  if(!inputProduct.nameProduct){
+    toast.error("Ingresar nombre del producto")
+    return false
+  }else if (!inputProduct.marca){
+    toast.error("Ingresar marca")
+    return false;
+  }else if(!inputProduct.imagePath && !inputProduct.imageProduct ){
+    toast.error("Ingresar imagen");
+    return false
+  }else{
+    return true;
+  }
+}
