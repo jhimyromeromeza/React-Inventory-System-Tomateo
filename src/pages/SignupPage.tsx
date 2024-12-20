@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import useSignup from "../Hooks/hookAuth/useSignup";
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
-//import { createUserWithEmailAndPassword } from "firebase/auth";
-//import { auth } from "../firebase/useFirebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/useFirebase";
 
 const SignupPage = () => {
   const { signup } = useSignup();
@@ -24,9 +24,9 @@ const SignupPage = () => {
             onSubmit={async (e) => {
               e.preventDefault();
               try {
-                //await createUserWithEmailAndPassword(auth, newUser.userName, newUser.password);
-                //alert("Usuario registrado exitosamente");
-                signup(newUser);
+                await createUserWithEmailAndPassword(auth, newUser.userName, newUser.password);
+                await signup(newUser);
+                console.log(newUser);
               } catch (error) {
                 alert("Usuario no creado");
                 console.log(error);
@@ -60,7 +60,7 @@ const SignupPage = () => {
                 }}
               />
             </div>
-            <button className="bg-red-500 rounded-md p-1">Registrarse</button>
+            <button type="submit" className="bg-red-500 rounded-md p-1">Registrarse</button>
             <Toaster />
             <Link className="text-center text-blue-400" to="/login">
               Iniciar Seccion

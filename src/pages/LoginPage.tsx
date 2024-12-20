@@ -42,7 +42,7 @@ const LoginPage = () => {
               }}
             />
           </div>
-          <button className="bg-red-500 rounded-md p-1">Iniciar Seccion</button>
+          <button type="submit" className="bg-red-500 rounded-md p-1">Iniciar Seccion</button>
           <Toaster />
           <Link className="text-center text-blue-400" to="/signup">
             Crear Cuenta
