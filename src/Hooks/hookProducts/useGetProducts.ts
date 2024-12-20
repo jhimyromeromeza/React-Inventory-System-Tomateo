@@ -17,7 +17,7 @@ const useGetProducts = (): {
     const getProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch("/api/products", {
+        const response = await fetch("https://matizadostomateo.com/api/products", {
           method: "GET",
           credentials: "include",
           headers: { "content-type": "application/json" },

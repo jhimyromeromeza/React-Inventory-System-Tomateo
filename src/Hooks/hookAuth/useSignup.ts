@@ -21,7 +21,7 @@ const useSignup = () => {
       setLoading(true);
       const success = verifyDatosRegister(newUser);
       if (!success) return;
-      const response = await fetch("/api/signup", {
+      const response = await fetch("https://matizadostomateo.com/api/signup", {
         method: "POST",
         credentials: "include",
         headers: { "content-type": "application/json" },

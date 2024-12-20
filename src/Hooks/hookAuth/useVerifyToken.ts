@@ -11,7 +11,7 @@ const useVerifyToken = (): { valid: boolean; loading: boolean } => {
     const validateToken = async () => {
       try {
         setLoading(true);
-        const response = await fetch("/api/validarSecion", {
+        const response = await fetch("https://matizadostomateo.com/api/validarSecion", {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },

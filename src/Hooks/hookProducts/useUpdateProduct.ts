@@ -9,7 +9,7 @@ const useUpdateProduct = () => {
   const updateProduct = async (newProduct: Product, id: string) => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/updateProduct/${id}`, {
+      const response = await fetch(`https://matizadostomateo.com/api/updateProduct/${id}`, {
         method: "PUT",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

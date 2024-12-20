@@ -10,7 +10,7 @@ const useLogout = () => {
   const logout = async () => {
     try {
       setLoading(true);
-      const response = await fetch("/api/logout", {
+      const response = await fetch("https://matizadostomateo.com/api/logout", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

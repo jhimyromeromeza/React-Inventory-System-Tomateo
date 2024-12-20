@@ -20,7 +20,7 @@ const useLogin = () => {
       setLoading(true);
       const succes = verifyLogin(usuario);
       if (!succes) return;
-      const response = await fetch("/api/login", {
+      const response = await fetch("https://matizadostomateo.com/api/login", {
         method: "POST",
         credentials: "include",
         headers: { "content-type": "application/json" },
