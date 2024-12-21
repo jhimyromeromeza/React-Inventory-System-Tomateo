@@ -30,6 +30,7 @@ const useLogin = () => {
       if (!response.ok)
         throw new Error(data.error || "An unexpected error occurred");
       if (!data.error) {
+        console.log("autenticado");
         setAuthUser([data]);
         localStorage.setItem("user", JSON.stringify(data));
         const userCredential = await signInWithEmailAndPassword(

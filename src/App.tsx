@@ -20,7 +20,6 @@ const App = () => {
           path="/"
           element={
             <ProtectedRoutes>
-              {" "}
               <ProductsPage />
             </ProtectedRoutes>
           }
