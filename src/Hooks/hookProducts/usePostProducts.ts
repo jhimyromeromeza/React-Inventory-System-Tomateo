@@ -8,7 +8,7 @@ const usePostProducts = () => {
   const sendProduct = async (product: Product) => {
     try {
       setLoading(true);
-      const response = await fetch("https://matizadostomateo.com/api/newProduct", {
+      const response = await fetch("https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/v1/api/newProduct", {
         method: "Post",
         credentials: "include",
         headers: { "content-type": "application/json" },

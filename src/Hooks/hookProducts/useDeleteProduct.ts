@@ -6,7 +6,7 @@ const useDeleteProduct = () => {
   const deleteProduct = async (id: string) => {
     try {
       setLoading(true);
-      const response = await fetch(`https://matizadostomateo.com/api/deleteProduct/${id}`, {
+      const response = await fetch(`https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/v1/api/deleteProduct/${id}`, {
         method: "DELETE",
         credentials: "include",
         headers: { "content-type": "application/json" },
