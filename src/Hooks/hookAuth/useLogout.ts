@@ -10,7 +10,7 @@ const useLogout = () => {
   const logout = async () => {
     try {
       setLoading(true);
-      const response = await fetch("https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/v1/api/logout", {
+      const response = await fetch("https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/api/logout", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

@@ -11,7 +11,7 @@ const useVerifyToken = (): { valid: boolean; loading: boolean } => {
     const validateToken = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/v1/api/validarSecion", {
+        const response = await fetch("https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/api/validarSecion", {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },

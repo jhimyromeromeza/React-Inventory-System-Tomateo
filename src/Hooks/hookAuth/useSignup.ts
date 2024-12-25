@@ -22,7 +22,7 @@ const useSignup = () => {
       const success = verifyDatosRegister(newUser);
       if (!success) return;
       console.log("procesando");
-      const response = await fetch("https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/v1/api/signup", {
+      const response = await fetch("https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/api/signup", {
         method: "POST",
         credentials: "include",
         headers: { "content-type": "application/json" },
