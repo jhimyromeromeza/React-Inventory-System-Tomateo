@@ -23,9 +23,7 @@ const SignupPage = () => {
               e.preventDefault();
               try {
                 await signup(newUser);
-                console.log(newUser);
               } catch (error) {
-                alert("Usuario no creado");
                 console.log(error);
               }
             }}
