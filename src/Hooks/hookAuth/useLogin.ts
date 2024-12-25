@@ -20,7 +20,7 @@ const useLogin = () => {
       setLoading(true);
       const succes = verifyLogin(usuario);
       if (!succes) return;
-      const response = await fetch("https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/api/login", {
+      const response = await fetch("https://x0g6umbkbf.execute-api.us-east-2.amazonaws.com/v1/api/login", {
         method: "POST",
         credentials: "include",
         headers: { "content-type": "application/json" },
