@@ -9,7 +9,7 @@ const LoginPage = () => {
     password: "",
   });
 
-  const { login } = useLogin();
+  const { login, loading } = useLogin();
   return (
     <div className="flex flex-col justify-center h-screen items-center min-w-96">
       <div className="text-center text-2xl p-2">
@@ -42,7 +42,13 @@ const LoginPage = () => {
               }}
             />
           </div>
-          <button type="submit" className="bg-red-500 rounded-md p-1">Iniciar Seccion</button>
+          <button type="submit" className="bg-red-500 rounded-md p-1">
+            {loading ? (
+              <span className="loading loading-spinner loading-sm"></span>
+            ) : (
+              "Iniciar secion"
+            )}
+          </button>
           <Toaster />
           <Link className="text-center text-blue-400" to="/signup">
             Crear Cuenta

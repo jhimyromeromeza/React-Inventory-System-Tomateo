@@ -16,7 +16,7 @@ const useLogout = () => {
         headers: { "Content-Type": "application/json" },
       });
       const data = await response.json();
-      if (!data) throw Error(data.error);
+      if (!response.ok) throw Error(data.error);
       toast.success(data.message);
       await signOut(auth);
       navigate("/login");

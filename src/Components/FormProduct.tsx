@@ -73,6 +73,7 @@ const FormProduct: React.FC<FormProductProps> = ({
             <div className=" md:flex md:space-x-3">
               <div>
                 <input
+                  name="nameProduct"
                   className="w-full rounded-md h-10 text-base mb-2"
                   placeholder="Nombre de Producto"
                   type="text"
@@ -87,6 +88,7 @@ const FormProduct: React.FC<FormProductProps> = ({
               </div>
               <div>
                 <input
+                  name="priceFactoryProduct"
                   className="w-full rounded-md h-10 text-base mb-2"
                   type="number"
                   placeholder="Precio de fabrica"
@@ -101,6 +103,7 @@ const FormProduct: React.FC<FormProductProps> = ({
               </div>
               <div>
                 <input
+                  name="priceStoreProduct"
                   className="w-full rounded-md h-10 text-base mb-2"
                   placeholder="Price de venta"
                   type="number"

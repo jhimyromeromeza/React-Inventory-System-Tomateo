@@ -64,4 +64,5 @@ const verifyDatosRegister = (usuario: SignupProps) => {
     toast.error("confirm password is required");
     return false;
   }
+  return true;
 };
