@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import useSignup from "../Hooks/hookAuth/useSignup";
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase/useFirebase";
 
 const SignupPage = () => {
   const { signup } = useSignup();
@@ -24,7 +22,6 @@ const SignupPage = () => {
             onSubmit={async (e) => {
               e.preventDefault();
               try {
-                await createUserWithEmailAndPassword(auth, newUser.userName, newUser.password);
                 await signup(newUser);
                 console.log(newUser);
               } catch (error) {
