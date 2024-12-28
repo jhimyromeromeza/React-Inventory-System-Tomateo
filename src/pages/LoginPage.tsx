@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import useLogin from "../Hooks/hookAuth/useLogin";
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
+import { MdVisibility } from "react-icons/md";
+import { MdVisibilityOff } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 
 const LoginPage = () => {
   const [usuario, setUsuario] = useState({
@@ -9,6 +12,7 @@ const LoginPage = () => {
     password: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
   const { login, loading } = useLogin();
   return (
     <div className="flex flex-col justify-center h-screen items-center min-w-96">
@@ -24,23 +28,40 @@ const LoginPage = () => {
           }}
         >
           <div className="flex flex-col space-y-2">
-            <label className="text-base">Usuario: </label>
+            <label className="text-base">Correo: </label>
+            <label className="relative text-gray-600 p-2 text-md input input-bordered flex items-center gap-2">
             <input
-              className="rounded-md p-2 text-black"
+              className="rounded-md p-2 text-black bg-white"
               onChange={(e) => {
                 setUsuario({ ...usuario, userName: e.target.value });
               }}
             />
+            <MdEmail size={20} className="absolute right-3"/>
+            </label>
           </div>
           <div className="flex flex-col space-y-2">
             <label>Contraseña: </label>
-            <input
-              type="password"
-              className="rounded-md p-2 text-black"
-              onChange={(e) => {
-                setUsuario({ ...usuario, password: e.target.value });
-              }}
-            />
+            <div className="relative text-gray-600 ">
+            <label className="p-2 text-md input input-bordered flex items-center gap-2">
+              <input
+                type={!showPassword ? "password": "text"}
+                className="rounded-md p-2 text-black bg-white"
+                onChange={(e) => {
+                  setUsuario({ ...usuario, password: e.target.value });
+                }}
+              />
+              <button className="absolute right-3"
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {!showPassword ? (
+                  <MdVisibilityOff size={20}/>
+                ): (
+                  <MdVisibility size={20}/>
+                )}
+              </button>
+            </label>
+            </div>
           </div>
           <button type="submit" className="bg-red-500 rounded-md p-1">
             {loading ? (
