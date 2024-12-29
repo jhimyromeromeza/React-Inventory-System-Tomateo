@@ -24,9 +24,7 @@ const ContainerProductos: React.FC<ContainerProductosProps> = ({
       SetListProducts(products);
     }
   }, [products]);
-  if (loading) {
-    return <span className="loading loading-spinner loading-sm"></span>;
-  }
+  
   return (
     <div className="w-full md:w-[70%]">
       <h2 className="text-center text-2xl font-semibold p-4">Productos</h2>
@@ -84,7 +82,10 @@ const ContainerProductos: React.FC<ContainerProductosProps> = ({
           </label>
         </div>
       </div>
-      <div className="cardProduct">
+      {loading ? (
+        <span className="loading loading-spinner loading-sm"></span>
+      ): (
+        <div className="cardProduct">
         {listProducts.map((product) => {
           return (
             <CardProduct
@@ -96,6 +97,7 @@ const ContainerProductos: React.FC<ContainerProductosProps> = ({
           );
         })}
       </div>
+      )}
     </div>
   );
 };

@@ -38,7 +38,7 @@ const FormProduct: React.FC<FormProductProps> = ({
 
   useEffect(() => {}, [isLoadingFile]);
 
-  const { sendProduct } = usePostProducts();
+  const { sendProduct, loading } = usePostProducts();
   const { updateProduct } = useUpdateProduct();
 
   return (
@@ -229,9 +229,10 @@ const FormProduct: React.FC<FormProductProps> = ({
             <div className="text-white">
               <button
                 className="bg-red-500 w-full rounded-md p-1"
-                disabled={isLoadingFile}
+                type="submit"
+                disabled={isLoadingFile || loading}
               >
-                {isLoadingFile ? (
+                {isLoadingFile || loading ? (
                   <span className="loading loading-spinner loading-sm"></span>
                 ) : (
                   "Crear"
